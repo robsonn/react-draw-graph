@@ -22,17 +22,21 @@ export default class Page1 extends Component {
         var labelPie = []
         var valuePie = []
 
-        dataBar.forEach(item => {
-            labelBar.push(item.label.toString().substring(0, 3))
-            valueBar.push(item.value)
-        });
+        if(dataBar !== undefined && dataPie !== undefined) {
+            dataBar.forEach(item => {
+                labelBar.push(item.label.toString().substring(0, 3))
+                valueBar.push(item.value)
+            });
+    
+            dataPie.forEach(item => {            
+                labelPie.push(item.label)                     
+                valuePie.push(item.value)
+            });
+            
+            this.setState({labelPie: labelPie, valuePie: valuePie, labelBar: labelBar, valueBar:valueBar})          
+        }
 
-        dataPie.forEach(item => {            
-            labelPie.push(item.label)                     
-            valuePie.push(item.value)
-        });
         
-        this.setState({labelPie: labelPie, valuePie: valuePie, labelBar: labelBar, valueBar:valueBar})          
     }
 
     /** 

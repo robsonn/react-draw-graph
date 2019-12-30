@@ -18,18 +18,20 @@ export default class Page2 extends Component {
         var todayEchY = []        
         var yesterdayEchY = []
 
-        dataLine.today.forEach(item => {
-          todayEchX.push(item.label)
-          todayEchY.push(item.value)
-        });
+        if(dataLine !== undefined) {
+            dataLine.today.forEach(item => {
+            todayEchX.push(item.label)
+            todayEchY.push(item.value)
+            });
 
-        dataLine.yesterday.forEach(item => {                                             
-          yesterdayEchY.push(item.value)
-        });
-        
-        this.setState({label: todayEchX,
-                     todayEchY: todayEchY,                     
-                     yesterdayEchY: yesterdayEchY})          
+            dataLine.yesterday.forEach(item => {                                             
+            yesterdayEchY.push(item.value)
+            });
+            
+            this.setState({label: todayEchX,
+                        todayEchY: todayEchY,                     
+                        yesterdayEchY: yesterdayEchY})          
+        }                
     }
 
     render() {                    
